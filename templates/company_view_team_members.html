@@ -1,0 +1,30 @@
+{% include'company_header.html' %}
+
+<br><br><br>								
+														
+		<center>
+			<br>
+			<h1>Team Member</h1>
+			<table class="table" style="width: 900px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Member</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Personality</th>
+					<th>Mark</th>
+				</tr>
+				{% for row in data['us'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['fname']}} {{row['lname']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['personality']}}</td>
+					<td>{{row['mark']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</center>
+
+{% include'footer.html' %}

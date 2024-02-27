@@ -1,0 +1,60 @@
+
+
+{% include 'userheader.html' %}
+
+
+<center>
+
+
+
+
+
+<form method="post" enctype="multipart/form-data">
+
+		<form method="post" enctype="multipart/form-data">
+		<h1>SENT APPLICATION </h1>
+		<table class="table" style="width: 600px">
+			<tr>
+				<td>Gender</td>
+				<td><select name="gender" required="" class="form-control">
+					<option value="1">Male</option>
+					<option value="0">Female</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td><input type="text" required class="form-control" name="age" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>resume</th>
+				<td><input type="file" name="re" required class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<th>Skills</th>
+				<td>
+					<select name="skill" class="form-control" required>
+						<option>C</option>
+						<option>C++</option>
+						<option>Java</option>
+						<option>Python</option>
+						<option>Php</option>
+						<option>Android</option>
+						
+					</select>
+				</td>
+			</tr>
+<!-- 			<tr>
+				<th>personality</th>
+				<td><input type="text" name="p" required=""></td>
+			</tr>
+ -->			<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-success" name="send"></td>
+			</tr>
+		</table>
+		
+	</form>
+</center>
+
+
+
+{% include 'footer.html' %}

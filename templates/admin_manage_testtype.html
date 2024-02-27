@@ -1,0 +1,56 @@
+{% include 'admin_header.html' %}
+<center>
+{% if data['edit'] %}
+<h2>Edit Test Type</h2>
+    <form action="" method="post">
+   
+    <table>
+        <tr  >
+            <th>Test Type</th>
+            <td><input type="text"  name="test" id="" required class="form-control" value="{{data['edit'][0]['type']}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="edit" id="" value="UPDATE" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+{%else%}
+<h2>Add Test Type</h2>
+    <form action="" method="post">
+
+    <table>
+        <tr  >
+            <th>Test Type</th>
+            <td><input type="text"  name="test" id="" required class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" id="" value="ADD" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+{%endif%}
+{% if data['test'] %}
+<h2>View Test Type</h2>
+<table class="table" style="width:600px;">
+    <tr>
+        <th>Sl no</th>
+        <th>Test Type</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for row in data['test'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{row['type']}}</td>
+        <td><a href="?action=update&tid={{row['test_type_id']}}" class="btn btn-warning">UPDATE</a></td>
+        <td><a href="?action=delete&tid={{row['test_type_id']}}" class="btn btn-danger">DELETE</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endif %}
+</center>
+
+{% include 'footer.html' %}

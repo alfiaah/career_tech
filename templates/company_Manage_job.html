@@ -1,0 +1,66 @@
+{% include 'company_header.html' %}
+<center>
+	<form method="post">
+		<h1><u><b>MANAGE JOB</b></u></h1>
+		{% if data['job_up']%}
+		<table class="table" style="width: 700px">
+			<tr>
+				<th>JOB</th>
+				<td><input type="text" class="form-control" name="job" required="" value="{{data['job_up'][0]['job']}}"></td>
+			</tr>
+			<tr>
+				<th>DETAILS</th>
+				<td><input type="text" name="det" class="form-control" required="" value="{{data['job_up'][0]['details']}}"></td>
+			</tr>
+			<tr>
+				<th>LAST DATE</th>
+				<td><input type="date" name="date" class="form-control" value="{{data['job_up'][0]['last_date']}}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-success" name="updatez" value="UPDATE"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table class="table" style="width: 700px">
+			<tr>
+				<th>JOB</th>
+				<td><input type="text" class="form-control" name="job" required=""></td>
+			</tr>
+			<tr>
+				<th>DETAILS</th>
+				<td><input type="text" class="form-control" name="det" required=""></td>
+			</tr>
+			<tr>
+				<th>LAST DATE</th>
+				<td><input type="date" class="form-control" name="date"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input class="btn btn-info" type="submit" name="submit"></td>
+			</tr>
+		</table>
+		{% endif %}
+		{% if data['job']%}
+		<h1>REGISTERED JOBS</h1>
+		<table class="table" style="width: 1000px">
+			<tr>
+				<th>SNO</th>
+				<th>JOB</th>
+				<th>DETAILS</th>
+				<th>LAST DATE</th>
+			</tr>
+			{% for row in data['job']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['job']}}</td>
+				<td>{{row['details']}}</td>
+				<td>{{row['last_date']}}</td>
+				<td><a class="btn btn-info" href="?action=delete&id={{row['job_id']}}">DELETE</a></td>
+				<td><a class="btn btn-success" href="?action=update&id={{row['job_id']}}">UPDATE</a></td>
+				<td><a class="btn btn-warning" href="company_View_application?jid={{row['job_id']}}">VIEW APPLICATION</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
+	</form>
+</center>
+{% include 'footer.html' %}

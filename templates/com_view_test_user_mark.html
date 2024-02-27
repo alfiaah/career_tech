@@ -1,0 +1,21 @@
+{% include 'company_header.html' %}
+<center>
+	<h1><u><b>Test Mark Details</b></u></h1>
+	<table class="table" style="width: 700px">
+		<tr>
+			<th>SNO</th>
+			<th>Test Type</th>
+			<th>mark</th>
+		</tr>
+		{% for row in data['resume']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<th>{{row['type']}}</th>
+			<td>{{row['mark_awarded']}}</td>
+		</tr>
+
+	{% endfor %}
+
+</table>
+</center>
+{% include 'footer.html' %}

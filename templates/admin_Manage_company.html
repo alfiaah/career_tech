@@ -1,0 +1,85 @@
+{% include 'admin_header.html' %}
+<center>
+	<form method="post">
+		<h1><u><b>MANAGE COMPANY</b></u></h1>
+		{% if data['com_up']%}
+		<table class="table" style="width: 600px">
+			<tr>
+				<th>COMPANY</th>
+				<td><input type="text" name="company" required="" class="form-control" value="{{data['com_up'][0]['company']}}"></td>
+			</tr>
+			<tr>
+				<th>PLACE</th>
+				<td><input type="text" name="place" required="" class="form-control" value="{{data['com_up'][0]['place']}}"></td>
+			</tr>
+			<tr>
+				<th>PHONE</th>
+				<td><input type="text" name="phno" required="" class="form-control" pattern="[0-9]{10}" value="{{data['com_up'][0]['phone']}}"></td>
+			</tr>
+			<tr>
+				<th>EMAIL</th>
+				<td><input type="email" name="email" class="form-control" value="{{data['com_up'][0]['email']}}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-info" name="updatez" value="UPDATE"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table class="table" style="width: 600px">
+			<tr>
+				<th>COMPANY</th>
+				<td><input type="text" name="company" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<th>PLACE</th>
+				<td><input type="text" name="place" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<th>PHONE</th>
+				<td><input type="text" name="phno" class="form-control" required="" pattern="[0-9]{10}"></td>
+			</tr>
+			<tr>
+				<th>EMAIL</th>
+				<td><input type="email" class="form-control" required="" name="email"></td>
+			</tr>
+			<tr>
+				<th>USER NAME</th>
+				<td><input type="text" name="uname" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<th>PASSWORD</th>
+				<td><input type="password" name="pwd" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-success" name="submit"></td>
+			</tr>
+		</table>
+		{% endif %}
+		{% if data['company']%}
+		<h1>REGISTERED COMPANIES</h1>
+		<table class="table" style="width: 650px">
+			<tr>
+				<th>SNO</th>
+				<th>COMPANY</th>
+				<th>PLACE</th>
+				<th>PHONE</th>
+				<th>EMAIL</th>
+			</tr>
+			{% for row in data['company']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['company']}}</td>
+				<td>{{row['place']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+				<td><a class="btn btn-danger" href="?action=delete&id={{row['login_id']}}">DELETE</a></td>
+				<td><a class="btn btn-warning" href="?action=update&id={{row['login_id']}}">UPDATE</a></td>
+				<td><a class="btn btn-info" href="admin_view_job?id={{row['company_id']}}">JOBS</a></td>
+
+			</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
+	</form>
+</center>
+{% include 'footer.html' %}

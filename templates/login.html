@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+<center style="color:black">
+<br><h2><b><u>LOGIN</u></b></h2>
+
+	<form method="post">
+		<table class="table" style="width:500px">
+			<tr>
+				<th>USERNAME</th>
+				<td><input type="text" required name="username" class="form-control" ></td>
+			</tr>
+			<tr>
+				<th>PASSWORD</th>
+				<td><input type="password" required name="password" class="form-control"></td>
+			</tr>
+			<tr>
+
+				<td align="center" colspan="2"><input type="submit" name="submit" value="login" class="btn btn-success"></td>
+			</tr>
+		</table>
+	</form>
+</center>
+{% include 'footer.html' %}

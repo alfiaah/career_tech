@@ -1,0 +1,76 @@
+{% include 'company_header.html' %}
+<center>
+	<form method="post">
+		<h1><u><b>MANAGE Team</b></u></h1>
+		{% if data['com_up']%}
+		<table class="table" style="width: 600px;">
+			<tr>
+				<th>Team</th>
+				<td><input type="text" class="form-control" name="team" required="" value="{{data['com_up'][0]['team']}}"></td>
+			</tr>
+			<tr>
+				<th>No Of Members</th>
+				<td><input type="number" class="form-control" name="member" required="" placeholder="Must Be Atleast {{data['com_up'][0]['no_of_members']}}" value="{{data['com_up'][0]['no_of_members']}}" min="{{data['com_up'][0]['no_of_members']  |int}}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-info" name="updatez" value="UPDATE"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table class="table" style="width: 600px;">
+			<tr>
+				<th>Team</th>
+				<td><input type="text" class="form-control" name="team"  required=""></td>
+			</tr>
+			<tr>
+				<th>No of Members</th>
+				<td><input type="number" placeholder="Must be Atleast 5 Members" min="5" max="15" class="form-control" name="member" required=""></td>
+			</tr>
+			<tr>
+				<th>Skills</th>
+				<td>
+					<select name="skill" class="form-control">
+						<option>C</option>
+						<option>C++</option>
+						<option>Java</option>
+						<option>Python</option>
+						<option>Php</option>
+						<option>android</option>
+						
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center"><input class="btn btn-info" type="submit" name="submit"></td>
+			</tr>
+		</table>
+		{% endif %}
+		{% if data['team'] %}
+		<h1>Team</h1>
+		<table class="table" style="width: 900px;">
+			<tr>
+				<th>SNO</th>
+				<th>Team</th>
+				
+				<th>No Of Members</th>
+				<th>Skill</th>
+			</tr>
+			{% for row in data['team']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['team']}}</td>
+				
+				<td>{{row['no_of_members']}}</td>
+				<td>{{row['skill']}}</td>
+				<td><a class="btn btn-primary" href="?action=add_member&id={{row['team_id']}}">Add Team Members</a></td>
+				<td><a href="company_view_team_members?tid={{row['team_id']}}" class="btn btn-danger">View Members</a></td>
+				<td><a class="btn btn-info" href="?action=delete&id={{row['team_id']}}">DELETE</a></td>
+				<td><a class="btn btn-info" href="?action=update&id={{row['team_id']}}">UPDATE</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
+	</form>
+</center>
+{% include 'footer.html' %}

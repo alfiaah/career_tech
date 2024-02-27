@@ -1,0 +1,34 @@
+{% include 'userheader.html' %}
+
+
+<div style="background-color: black;opacity: 0.8">
+    <br><br>
+<center>
+    <h2>Company</h2>
+    {% if data['res'] %}
+    <table>
+        <tr>
+            <th>Sl no</th>
+            <th>Company</th>
+            <th>Place</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['company']}}</td>
+            <td>{{row['place']}}</td>
+            <td>{{row['phone']}}</td>
+            <td>{{row['email']}}</td>
+            <td><a href="userviewtest?cid={{row['company_id']}}" class="btn btn-warning">Start Exam</a></td>
+        </tr>
+        {%endfor%}
+        {% else %}
+        <h3>No data</h3>
+        {% endif %}
+    </table>
+</center>
+</div>
+
+{% include 'footer.html' %}

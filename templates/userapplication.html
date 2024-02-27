@@ -1,0 +1,29 @@
+{% include 'userheader.html' %}
+
+{% if data['res'] %}
+<center>
+    <h2>My Applications</h2>
+    <table>
+        <tr><th>Sl. no</th>
+            <th>Company Name</th>
+            <th>Skill</th>
+            <th>Application Status</th>
+             <th>Resume</th>
+            
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['company']}}</td>
+            <td>{{row['skill']}}</td>
+            <td>{{row['application_status']}}</td>
+             <td><a href="{{row['resume_path']}}" download>RESUME</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{%else%}
+<h2>No data</h2>
+{% endif %}
+
+{% include 'footer.html' %}

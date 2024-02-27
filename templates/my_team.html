@@ -1,0 +1,40 @@
+{% include 'userheader.html' %}
+
+
+
+
+<center>
+	<div style="background-color: black;opacity: 0.8">
+
+{% if data['team']!='team' %}
+<h1>YOUR TEAM-{{data['team'][0]['team']}}</h1>
+
+
+{% if data['member'] %}
+<h1>Team Members</h1>
+			<table class="table" style="width: 900px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Member</th>
+					<th>Phone</th>
+					<th>Email</th>
+				</tr>
+				{% for row in data['member'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['fname']}} {{row['lname']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+{% endif  %}
+
+{%  else %}
+
+<h1>NO TEAM</h1>
+{% endif %}
+</div>
+</center>
+{% include 'footer.html' %}

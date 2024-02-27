@@ -1,0 +1,121 @@
+{% include 'company_header.html' %}
+
+<center>
+<form action="" method="post" >
+    <table>
+
+        <!-- <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div> -->
+
+        <div>
+        <tr>
+            <th>Test Type</th>
+            <td>:</td>
+            <!-- <td>
+            <button name="testtype" class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+              </button>
+              
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for row in data['res'] %}
+                <a class="dropdown-item" value="{{row['test_type_id']}}" >{{row['type']}}</a>
+                {% endfor %}
+                </div>
+            </td> -->
+            <td><select name="testtype" id="" class="form-control">
+                {% for row in data['res'] %}
+                <option value="{{row['test_type_id']}}" class="dropdown-item">{{row['type']}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+    </div>
+        <div >
+        <tr>
+            <th>Question</th>
+            <td>:</td>
+            <td><input type="text" name="question" class="form-control"></td>
+        </tr>
+    </div>
+        <div>
+        <tr>
+            <th>Option 1</th>
+            <td>:</td>
+            <td><input type="text" name="option1" class="form-control"></td>
+        </tr>
+    </div>
+        <div>
+        <tr>
+            <th>Option 2</th>
+            <td>:</td>
+            <td><input type="text" name="option2" class="form-control"></td>
+        </tr>
+    </div>
+        <div>
+        <tr>
+            <th>Option 3</th>
+            <td>:</td>
+            <td><input type="text" name="option3" class="form-control"></td>
+        </tr>
+    </div>
+        <div>
+        <tr>
+            <th>correct option</th>
+            <td>:</td>
+            <td><input type="text" name="coption" class="form-control"></td>
+        </tr>
+    </div>
+        <div>
+        <tr>
+            <th></th>
+            <td></td>
+            <td><input type="submit" name="submit" value="Submit" class="btn btn-success"></td>
+        </tr>
+    </div>
+    </table>
+</form>
+</center>
+
+
+<div class="container" style="background-color: #fff;margin-top: 30px;opacity: 0.6">
+
+<center>
+    {% if data['test']%}
+    <h1><u><b>Questioons And Options</b></u></h1>
+    <table class="table" style="width: 1100px;color: #000" >
+        <tr>
+            <th>SNO</th>
+            <th>Test Type</th>
+            <th>Question</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Correct Option </th>
+        </tr>
+        {% for row in data['test']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['type']}}</td>
+            <td>{{row['question']}}</td>
+            <td>{{row['option1']}}</td>
+            <td>{{row['option2']}}</td>
+            <td>{{row['option3']}}</td>
+            <td>{{row['correct_option']}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1>!! NO DATA FOUND!!</h1>
+    {% endif %}
+</center>
+
+</div>
+{% include 'footer.html' %} 

@@ -1,0 +1,58 @@
+{% include 'userheader.html' %}
+
+
+
+
+<center>
+	<h1><u><b>WELCOME </b></u></h1>
+	<!-- <div style="background-color: black;opacity: 0.8"> -->
+		<br><br>
+<!-- {% if data['team']!='team' %}
+<h1>YOUR TEAM-{{data['team'][0]['team']}}</h1>
+{% endif %} -->
+<br><br>
+{% if data['user'] %}
+<h1>PROFILE</h1>
+<form action="" method="post">
+			<table class="table" style="width: 900px;">
+				<tr>
+					
+					<th>First Name</th>
+					<td><input type="text" style="margin:15px;" name="fname" id="" value="{{data['user'][0]['fname']}}" class="form-control"></td>
+					</tr>
+					<tr>
+					<th>Last Name</th>
+					<td><input type="text" style="margin:15px;" name="lname" id="" value="{{data['user'][0]['lname']}}" class="form-control"></td>
+					</tr>
+					<tr>
+						<th>Place</th>
+						<td><input type="text" style="margin:15px;" name="place" id="" value="{{data['user'][0]['place']}}" class="form-control"></td>
+
+					</tr>
+					<tr>
+						<th>Phone</th>
+						<td><input type="text" style="margin:15px;" name="phone" id="" value="{{data['user'][0]['phone']}}" class="form-control"></td>
+
+					</tr>
+					<tr>
+						<th>Email</th>
+						<td><input type="mail" style="margin:15px;" name="mail" id="" value="{{data['user'][0]['email']}}" class="form-control"></td>
+
+					</tr>
+					<tr>
+						<th></th>
+						<td><input type="submit" style="margin:15px;" name="submit" id="" value="Update Profile" class="btn btn-success"></td>
+
+					</tr>
+			
+			</table>
+		</form>
+{% endif  %}
+
+<!-- {% if data['per'] %}
+<h1>PERSONALITY -{{data['per']}}</h1>
+{% endif %} -->
+<!-- 
+</div> -->
+</center>
+{% include 'footer.html' %}

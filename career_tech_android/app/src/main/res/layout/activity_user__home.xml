@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".User_Home" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="HOME"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#088D14"
+        android:text="View Jobs"
+        android:textColor="#000"
+
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button2"
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="#088D14"
+        android:textColor="#000"
+        android:textStyle="bold"
+        
+        android:text="View Requested Jobs" />
+
+    <Button
+        android:id="@+id/button3"
+ android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="#088D14"
+        android:textColor="#000"
+        android:textStyle="bold"
+        
+        android:text="Complaints" />
+
+        <Button
+        android:id="@+id/button4"
+ android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+            android:background="#088D14"
+            android:textColor="#000"
+            android:textStyle="bold"
+        android:text="Logout" />
+
+
+</LinearLayout>

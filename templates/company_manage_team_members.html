@@ -1,0 +1,49 @@
+{% include'company_header.html' %}
+
+<br><br><br>								
+														
+	<form method="post">
+		<center>
+			<h2>ADD TEAM MEMBERS</h2>
+			<table class="table" style="width: 600px;">
+
+				<tr>
+					<th>Select User</th>
+					<td>
+						<select name="user" required class="form-control">
+							{% for row in data['s'] %}
+							<option value="{{row['user_id']}}">{{row['fname']}} {{row['lname']}}</option>
+							{% endfor %}
+						</select> 
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-info"></td>
+				</tr>
+			</table>
+		</center>
+	</form>
+
+		<center>
+			<br>
+			<h1>Team Members</h1>
+			<table class="table" style="width: 900px;">
+				<tr>
+					<th>Sl.no</th>
+					<th>Member</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Mark</th>
+				</tr>
+				{% for row in data['us'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['fname']}} {{row['lname']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['mark']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</center>
+{% include'footer.html' %}

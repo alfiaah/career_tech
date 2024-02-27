@@ -1,0 +1,52 @@
+{% include 'admin_header.html' %}
+
+<center>
+	<a href="admin_managequest"  class="btn btn-primary">GO TO QUESTIONS PAGE</a>
+	<form method="post">
+		<h2>MANAGE OPTIONS OF - {{quest}}</h2>
+	<table class="table" style="width: 400px">
+		<tr>
+			<th>OPTION</th>
+			<td><input type="text" name="option" class="form-control" required=""></td>
+		<tr>
+			<th>MARK</th>
+			<td>
+				<select name="mark" class="form-control" required>
+					{% for row in data['l'] %}
+					<option>{{row}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-info"></td>
+		</tr>
+	</table>
+	<br>
+	{% if data['option'] %}
+	<h2>OPTIONS ADDED</h2>
+	<table class="table" style="width: 500px">
+	<tr>
+		<th>OPTION</th>
+		<th>MARK</th>
+		<th>DELETE</th>
+	</tr>
+
+		{% for row in data['option'] %}
+		<tr>
+			<td>{{row['answer']}}</td>
+			<td>{{row['mark']}}</td>
+			<td><a href="?action=delete&oid={{row['qstansr_id']}}&quest={{quest}}&qid={{qid}}" class="btn btn-danger">DELETE</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+
+	</form>
+</center>
+	
+
+
+
+
+{% include 'footer.html' %}

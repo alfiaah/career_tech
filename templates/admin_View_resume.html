@@ -1,0 +1,26 @@
+{% include 'admin_header.html' %}
+<center>
+	{% if data['resume']%}
+	<h1><u><b>UPLOADED RESUMES</b></u></h1>
+	<table class="table" style="width: 900px">
+		<tr>
+			<th>SNO</th>
+			<th>USER NAME</th>
+			<th>RESUME</th>
+			
+		</tr>
+		{% for row in data['resume']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['user']}}</td>
+			
+			<td><a href="/{{row['resume_path']}}" download="" class="btn btn-danger">VIEW</a></td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	<h1>!! NO DATA FOUND!!</h1>
+	{% endif %}
+</center>
+{% include 'footer.html' %}

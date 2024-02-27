@@ -1,0 +1,27 @@
+{% include 'userheader.html' %}
+<center>
+	<form method="post">
+		
+		<h1>VIEW JOBS</h1>{{ today }}
+		<table class="table" style="width: 700px">
+			<tr>
+				<th>SNO</th>
+				<th>COMPANY</th>
+				<th>JOB</th>
+				<th>DETAILS</th>
+				<th>LAST DATE</th>
+			</tr>
+			{% for row in data['job']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['company']}}</td>
+				<td>{{row['job']}}</td>
+				<td>{{row['details']}}</td>
+				<td>{{row['last_date']}}</td>
+				<td><a class="btn btn-success" href="usersendapplication?job_id={{row['job_id']}}&company_id={{row['company_id']}}">SENT APPLICATION</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+</center>
+{% include 'footer.html' %}

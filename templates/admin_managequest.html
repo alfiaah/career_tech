@@ -1,0 +1,47 @@
+{% include 'admin_header.html' %}
+
+<form method='post'>
+<center>
+{% if not data['filled'] %} 
+	<h2>MANAGE QUESTIONS</h2>
+
+<table class="table" style="width: 500px">
+	<tr>
+		<th>QUESTION</th>
+		<td><input type="text" name="quest" class="form-control" required></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-info"></td>
+	</tr>
+</table>
+
+
+{% endif %}
+
+{% if data['quest'] %}
+<h1>VIEW QUESTIONS</h1>
+<table class="table" style="width: 500px">
+	<tr>
+		<th>QUESTION</th>
+		<th>ADD OPTIONS</th> 
+		<th>DELETE</th>
+	</tr>
+		{% for row in data['quest'] %}
+	<tr>
+		<td>{{row['question']}}</td>
+		<td><a href="admin_addop?qid={{row['question_id']}}&quest={{row['question']}}"  class="btn btn-primary">ADD ANSWER OPTIONS</a></td>
+		<td><a href="?action=delete&qid={{row['question_id']}}&
+			quest={{row['question']}}"  class="btn btn-danger">DELETE</a></td>
+	</tr>
+	{%  endfor %}
+</table>
+{% endif %}
+</center>
+</form>
+					
+
+
+
+
+
+{% include 'footer.html'%}

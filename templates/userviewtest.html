@@ -1,0 +1,53 @@
+{% include 'userheader.html' %}
+<center>
+
+    <table>
+            
+        <ul>
+           
+            <div class="col-lg-10  portfolio-item filter-app">
+            {% if data['res'] %}
+            <h4>Test Types</h4>
+            {% endif %}
+            {% for row in data['res'] %}
+            <li><a href="?action=test&id={{row['test_type_id']}}" style="font-size: 20px; margin-bottom: 5px;" class="btn btn-info ">{{row['type']}}</a></li>
+            {% endfor %}
+        </div>
+        </ul>
+    </table>
+
+    <form action="" method="post">
+        <table>
+            {% if data['res1'] %}
+            <h4>Start Exam</h4>
+            {% endif %}
+            {% for row in data['res1'] %}
+            <div class="col-lg-10  portfolio-item filter-app">
+            <tr>
+                
+                <td>{{loop.index}}&nbsp;&nbsp;{{row['question']}}</td>
+                </tr>
+                <tr>
+                <td>&nbsp;&nbsp;<input type="radio" name="ans{{ loop.index }}" value="{{row['option1']}}">{{row['option1']}}&nbsp;
+                    <input type="radio" name="ans{{ loop.index }}" value="{{row['option2']}}">{{row['option2']}}&nbsp;
+                    
+                    <input type="radio" name="ans{{ loop.index }}" value="{{row['option3']}}">{{row['option3']}}&nbsp;
+                </td>  
+            </tr>
+            </div>
+            {% endfor %}
+            <tr>
+                <div class="col-lg-10  portfolio-item filter-app">
+                <td></td>
+                {%if data['res1']%}
+                <td><input type="submit" name="submit" value="submit" class="btn btn-primary"></td>
+                {% endif %}
+            </tr>
+        </div>
+        </table>
+
+
+    </form>
+</center>
+
+{% include 'footer.html' %}

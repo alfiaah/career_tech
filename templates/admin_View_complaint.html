@@ -1,0 +1,35 @@
+{% include 'admin_header.html' %}
+<center>
+	<form method="post">
+		{% if data['complaint']%}
+		<h1><u><b>COMPLAINTS</b></u></h1>
+		<table class="table" style="width: 600px">
+			<tr>
+				<th>SNO</th>
+				<th>USER</th>
+				<th>COMPLAINTS</th>
+				<th>DATE</th>
+				<th>REPLY</th>
+			</tr>
+			{% for row in data['complaint']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['user']}}</td>
+				<td>{{row['complaint']}}</td>
+				<td>{{row['date']}}</td>
+				{% if row['reply']=='status pending'%}
+				<td><input type="text" class="form-control" name="reply{{loop.index}}">
+					<input type="hidden" name="id{{loop.index}}" value="{{row['complaint_id']}}">
+					<input class="btn btn-info" type="submit" name="submit{{loop.index}}"></td>
+					{% else %}
+				<td>{{row['reply']}}</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+		{% else %}
+		<h1>!! NO COMPLAINTS FOUND !!</h1>
+		{% endif %}
+	</form>
+</center>
+{% include 'footer.html' %}

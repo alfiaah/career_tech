@@ -1,0 +1,11 @@
+{% include 'userheader.html' %}
+{% if data['res'] %}
+
+<div style="background-color: black;opacity: 0.8">
+    <br><br>
+<h2 style="text-align: center;">Your Score is {{data['res'][0]['mark_awarded']}} in {{data['res'][0]['grand_total']}} !!</h2>
+
+   <a style="position: absolute;right: 300px;" href="userviewtest" class="btn btn-info">Next Exam</a>
+</div>
+{% endif %}
+{% include 'footer.html' %}

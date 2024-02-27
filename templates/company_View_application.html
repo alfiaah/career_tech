@@ -1,0 +1,38 @@
+{% include 'company_header.html' %}
+<center>
+	{% if data['resume']%}
+	<h1><u><b>UPLOADED RESUMES(job:{{ data['resume'][0]['job']}}</b></u></h1>
+	<table class="table" style="width: 700px">
+		<tr>
+			<th>SNO</th>
+			<th>USER NAME</th>
+			<th>Test Mark</th>
+			<th>RESUME</th>
+			<th>Application Status</th>
+		</tr>
+		{% for row in data['resume']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['user']}}</td>
+
+			<td><a class="btn btn-success" href="com_view_test_user_mark?uid={{row['user_id']}}&jbid={{data['jid']}}">Test Mark</a></td>
+			
+			<td><a class="btn btn-success" href="/{{row['resume_path']}}" download="">Downoad</a></td>
+			<!-- <td>
+					<a class="btn btn-info" href="https://www.16personalities.com/{{row['personality']}}-personality">{{row['personality']}}</a>
+				
+			</td> -->
+			{% if row['application_status']=='pending' %}
+			<td><a href="?action=accept&applicatoion_id={{row['application_id']}}&jid={{row['job_id']}}" class="btn btn-info">Select Application</a></td>
+			<td><a href="?action=reject&applicatoion_id={{row['application_id']}}&jid={{row['job_id']}}" class="btn btn-info">Reject Application</a></td>
+		{% else %}
+		<td>{{row['application_status']}}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	<h1>!! NO DATA FOUND!!</h1>
+	{% endif %}
+</center>
+{% include 'footer.html' %}

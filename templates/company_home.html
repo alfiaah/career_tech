@@ -1,0 +1,33 @@
+{% include 'company_header.html' %}
+<center>
+	<marquee>
+<h1><u><b>WELCOME {{session['name']}}</b></u></h1></marquee>
+
+<table>
+	{% if data['res'] %}
+	<form action="" method="post">
+	<tr>
+		<th>Name : </th>
+		<td><input style="margin: 15px;" type="text" name="cname" value="{{data['res'][0]['company']}}" class="form-control" required></td>
+	</tr>
+	<tr>
+		<th>Place : </th>
+		<td><input type="text"  style="margin: 15px;"name="place" value="{{data['res'][0]['place']}}" class="form-control" required></td>
+	</tr>
+	<tr>
+		<th>Phone : </th>
+		<td><input type="text" style="margin: 15px;" pattern="[0-9]{10}" name="phone" value="{{data['res'][0]['phone']}}" class="form-control" required></td>
+	</tr>
+	<tr>
+		<th>Email : </th>
+		<td><input type="email" style="margin: 15px;" name="email" value="{{data['res'][0]['email']}}" class="form-control" required></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" style="margin: 15px;" class="form-control btn-warning" name="submit" value="UPDATE PROFILE"></td>
+	</tr>
+</table>
+</form>
+</center>
+{% endif %}
+{% include 'footer.html' %}

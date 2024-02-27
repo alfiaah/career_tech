@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.personalityprediction">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Personalityprediction">
+
+        <activity android:name=".Requestforjob"></activity>
+
+        <activity android:name=".ViewRequestedStatus" />
+
+        <activity android:name=".IPSetting" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Login" />
+        <activity android:name=".User_Home" />
+        <activity android:name=".UserRegister" />
+        <activity android:name=".User_Send_feedback" />
+        <activity android:name=".UserViewCompany" />
+        <activity android:name=".UserViewjobs" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+    </application>
+
+</manifest>
